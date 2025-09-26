@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Table, Button, Form, InputGroup, Spinner, Alert, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card, Table, Button, Form, Spinner, Alert, Badge } from 'react-bootstrap';
 import { LeaveRequest, LeaveRequestFilters, LeaveStatus, LeaveType } from '../types';
 import './LeaveRequestsPage.scss';
 

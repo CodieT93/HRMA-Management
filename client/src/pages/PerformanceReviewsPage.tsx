@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Table, Button, Form, Spinner, Alert, Badge, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Form, Spinner, Alert, Badge, ProgressBar } from 'react-bootstrap';
 import { PerformanceReview, ReviewStatus } from '../types';
 import './PerformanceReviewsPage.scss';
 
@@ -217,7 +217,6 @@ const PerformanceReviewsPage: React.FC = () => {
                       <ProgressBar
                         now={goal.progress}
                         variant={goal.progress === 100 ? 'success' : goal.progress > 50 ? 'info' : 'warning'}
-                        size="sm"
                       />
                     </div>
                   ))}

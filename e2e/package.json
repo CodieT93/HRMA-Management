@@ -14,11 +14,8 @@
   },
   "devDependencies": {
     "cypress": "^13.6.0",
-    "@cypress/code-coverage": "^3.12.8",
+    "@cypress/code-coverage": "^3.14.6",
     "cypress-real-events": "^1.10.0",
     "cypress-file-upload": "^5.0.8"
-  },
-  "dependencies": {
-    "@testing-library/cypress": "^9.0.0"
   }
 }

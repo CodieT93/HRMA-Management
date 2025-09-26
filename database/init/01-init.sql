@@ -1,5 +1,5 @@
--- Create database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS hr_management;
+-- Database is already created by POSTGRES_DB environment variable
+-- No need to create it here
 
 -- Create user if it doesn't exist
 DO $$

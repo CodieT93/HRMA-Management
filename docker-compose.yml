@@ -56,18 +56,12 @@ services:
       context: ./client
       dockerfile: Dockerfile
     container_name: hr_client
-    environment:
-      - REACT_APP_API_URL=http://localhost:5000/api
     ports:
-      - "3000:3000"
-    volumes:
-      - ./client:/app
-      - /app/node_modules
+      - "3000:80"
     depends_on:
       - server
     networks:
       - hr_network
-    command: npm start
 
 volumes:
   postgres_data:

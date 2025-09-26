@@ -16,7 +16,7 @@ const DashboardPage: React.FC = () => {
       try {
         setIsLoading(true);
         // In a real app, you'd have a dedicated dashboard API endpoint
-        const [employeeStats, recentHires, recentLeaveRequests] = await Promise.all([
+        const [employeeStats, recentHires] = await Promise.all([
           employeeApi.getEmployeeStats(),
           employeeApi.getEmployees({}, 1, 5),
           // leaveApi.getRecentLeaveRequests(),
