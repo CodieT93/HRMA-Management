@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: hr_postgres
+    environment:
+      POSTGRES_DB: hr_management
+      POSTGRES_USER: hr_user
+      POSTGRES_PASSWORD: hr_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - hr_network
+
+  # Redis for caching and sessions
+  redis:
+    image: redis:7-alpine
+    container_name: hr_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - hr_network
+
+  # Backend Server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: hr_server
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://hr_user:hr_password@postgres:5432/hr_management
+      - REDIS_URL=redis://redis:6379
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - hr_network
+    command: npm run dev
+
+  # Frontend Client
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: hr_client
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - server
+    networks:
+      - hr_network
+    command: npm start
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  hr_network:
+    driver: bridge

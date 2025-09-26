@@ -1,0 +1,309 @@
+.settings-page {
+  .page-header {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--dark-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: var(--secondary-color);
+      margin-bottom: 0;
+    }
+  }
+  
+  .settings-sidebar {
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9ecef;
+      overflow: hidden;
+      
+      .list-group {
+        .list-group-item {
+          border: none;
+          border-bottom: 1px solid #f8f9fa;
+          padding: 1rem 1.5rem;
+          background: transparent;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          
+          &:last-child {
+            border-bottom: none;
+          }
+          
+          &:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+          }
+          
+          &.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            
+            i {
+              color: white;
+            }
+          }
+          
+          i {
+            width: 20px;
+            margin-right: 0.75rem;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+          }
+          
+          &:hover i,
+          &.active i {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+  
+  .settings-content {
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9ecef;
+      
+      .card-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+        border-radius: 1rem 1rem 0 0 !important;
+        padding: 1.25rem 1.5rem;
+        
+        h5 {
+          margin-bottom: 0;
+          font-weight: 600;
+          color: var(--dark-color);
+        }
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      
+      .form-label {
+        font-weight: 500;
+        color: var(--dark-color);
+        margin-bottom: 0.5rem;
+      }
+      
+      .form-control,
+      .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        
+        &:focus {
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+      }
+      
+      .form-control[type="password"] {
+        font-family: monospace;
+      }
+      
+      .form-text {
+        font-size: 0.8rem;
+        color: var(--secondary-color);
+        margin-top: 0.25rem;
+      }
+    }
+    
+    .form-check {
+      margin-bottom: 1rem;
+      
+      .form-check-input {
+        border: 2px solid #e9ecef;
+        border-radius: 0.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        transition: all 0.3s ease;
+        
+        &:checked {
+          background-color: var(--primary-color);
+          border-color: var(--primary-color);
+        }
+        
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+      }
+      
+      .form-check-label {
+        font-weight: 500;
+        color: var(--dark-color);
+        margin-left: 0.5rem;
+        cursor: pointer;
+      }
+    }
+    
+    .btn {
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      
+      &.btn-primary {
+        background: linear-gradient(135deg, var(--primary-color), #0056b3);
+        border: none;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+        
+        &:disabled {
+          transform: none;
+          box-shadow: none;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    
+    i {
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+    
+    h5 {
+      color: var(--dark-color);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: var(--secondary-color);
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Alert styles
+.alert {
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  
+  &.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-left: 4px solid var(--success-color);
+  }
+  
+  &.alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+    border-left: 4px solid var(--danger-color);
+  }
+  
+  .btn-close {
+    padding: 0.75rem 1rem;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .settings-page {
+    .page-header {
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .settings-sidebar {
+      margin-bottom: 1.5rem;
+      
+      .card {
+        .list-group {
+          .list-group-item {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    
+    .settings-content {
+      .card {
+        .card-header {
+          padding: 1rem 1.25rem;
+        }
+        
+        .card-body {
+          padding: 1.25rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .settings-page {
+    .settings-content {
+      .form-group {
+        margin-bottom: 1rem;
+        
+        .form-control,
+        .form-select {
+          padding: 0.625rem 0.875rem;
+          font-size: 0.875rem;
+        }
+      }
+      
+      .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Animation for form elements
+.form-group {
+  animation: slideInUp 0.4s ease-out;
+  animation-fill-mode: both;
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+  &:nth-child(5) { animation-delay: 0.5s; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
