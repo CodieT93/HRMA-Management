@@ -239,7 +239,7 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/CodieT93/HRMA-Management.git
    cd hr-management-application
    ```
 
